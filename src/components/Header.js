@@ -1,33 +1,27 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { Link as RouterLink } from 'react-router-dom';
-import { AppBar, Toolbar, Typography, Button, IconButton, Badge } from '@mui/material';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { AppBar, Toolbar, Typography, Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
-function Header() {
-  const cartItems = useSelector((state) => state.cart);
-  const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
-
+export default function Header() {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Ma Boutique
+        <Typography variant="h6" sx={{ flexGrow: 1 }}>
+          E-Commerce
         </Typography>
-        <Button color="inherit" component={RouterLink} to="/">
+        <Button color="inherit" component={Link} to="/">
           Accueil
         </Button>
-        <Button color="inherit" component={RouterLink} to="/products">
+        <Button color="inherit" component={Link} to="/products">
           Produits
         </Button>
-        <IconButton color="inherit" component={RouterLink} to="/cart">
-          <Badge badgeContent={itemCount} color="error">
-            <ShoppingCartIcon />
-          </Badge>
-        </IconButton>
+        <Button color="inherit" component={Link} to="/cart">
+          Panier
+        </Button>
+        <Button color="inherit" component={Link} to="/checkout">
+          Passer à la caisse
+        </Button>
       </Toolbar>
     </AppBar>
   );
 }
-
-export default Header;

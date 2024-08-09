@@ -5,6 +5,8 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import CartPage from './pages/CartPage';
+import Checkout from './pages/Checkout';
+import PaymentForm from './pages/PaymentForm'; // Importez le composant PaymentForm
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/payment-form" element={<PaymentForm />} /> {/* Ajoutez la route PaymentForm */}
           </Routes>
         </Container>
       </Box>
